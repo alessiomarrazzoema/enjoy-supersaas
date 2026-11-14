@@ -31,7 +31,7 @@ var bw=d.querySelector('.box_wrap');
 walk(bw,function(n){var v=n.nodeValue.trim();if(/^Invia email$/i.test(v))n.nodeValue=n.nodeValue.replace(/Invia email/i,'Invia email di conferma');else if(/^Conferma$/i.test(v))n.nodeValue=''});
 [].forEach.call(d.querySelectorAll('input[type=submit]'),function(x){x.value='Conferma prenotazione'});
 var f=d.getElementById('booking_full_name');
-if(f&&f.parentNode&&f.parentNode.parentNode){var lb=d.createElement('div');lb.className='ec-lbl';lb.textContent='Nome e cognome';var row=f.parentNode.parentNode;row.parentNode.insertBefore(lb,row)}
+if(false){var lb=d.createElement('div');lb.className='ec-lbl';lb.textContent='Nome e cognome';var row=f.parentNode.parentNode;row.parentNode.insertBefore(lb,row)}
 }
 }
 [].forEach.call(d.querySelectorAll('a[href*="shop"]'),function(x){x.target='_top'});
