@@ -2,7 +2,7 @@
 if(window.__ec||window.top!==window)return;window.__ec=1;
 var BASE='https://alessiomarrazzoema.github.io/enjoy-supersaas/';
 var VIEW=/[?&]view=(new|free|agenda)(&|$)/;
-var EXTRA='.ec-card{order:2;margin:16px 0 16px;padding:14px 16px;border-radius:14px;background:#f1f5f2;color:#242627;font:600 16px Inter,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}.ec-card.xcol5{background:#0f0f0f;color:#fff}.ec-card.xcol13{background:#ffd400;color:#242627}.ec-card.xcol3{background:#d9dcda;color:#242627}.ec-card .ec-n{background:#47ff82;color:#242627;border-radius:8px;padding:2px 10px;white-space:nowrap}';
+var EXTRA='.ec-card{order:2;margin:16px 0 16px;padding:14px 16px;border-radius:14px;background:#f1f5f2;color:#242627;font:600 16px Inter,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}.ec-card.xcol5{background:#0f0f0f;color:#fff}.ec-card.xcol13{background:#ffd400;color:#242627}.ec-card.xcol3{background:#d9dcda;color:#242627}.d3{order:9;margin-top:24px}.ec-card .ec-n{background:#47ff82;color:#242627;border-radius:8px;padding:2px 10px;white-space:nowrap}';
 function q(s){var e=document.querySelector(s);return e?e.textContent.replace(/\s+/g,' ').trim():''}
 function info(){var w=document.getElementById('bbox_color_wrap');var m=w&&w.className.match(/xcol\d+/);return{title:q('#bbox_title'),date:q('#bbox_date'),spots:q('#bbox_color'),cx:m?m[0]:''}}
 function closeOv(reload){var o=document.getElementById('ec-ov');if(o)o.remove();document.documentElement.style.overflow='';if(reload)location.href=location.pathname.replace(/\/\d+$/,'')}
