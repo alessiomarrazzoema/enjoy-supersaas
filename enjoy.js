@@ -2,18 +2,30 @@
 if(window.__ec||window.top!==window)return;window.__ec=1;
 var BASE='https://alessiomarrazzoema.github.io/enjoy-supersaas/';
 var VIEW=/[?&]view=(new|free|agenda)(&|$)/;
-var EXTRA='.ec-card{order:2;margin:16px 0 16px;padding:14px 16px;border-radius:14px;background:#f1f5f2;color:#242627;font:600 16px Inter,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}.ec-card.xcol5{background:#0f0f0f;color:#fff}.ec-card.xcol13{background:#ffd400;color:#242627}.ec-card.xcol3{background:#d9dcda;color:#242627}.d3{order:9;margin-top:24px}'
+var K=[[/hyrox/i,'hy'],[/crossfit/i,'cf'],[/gag/i,'gag'],[/open\s*box/i,'ob'],[/circuit/i,'ci'],[/skill|team\s*wod/i,'rd'],[/pilates/i,'pi']];
+var MAP={cf:'xcol5',hy:'xcol13',ob:'xcol3',gag:'ecx-gag',ci:'ecx-ci',rd:'ecx-rd',pi:'ecx-pi'};
+var PAL={gag:['#8fd3ff','#242627'],ci:['#ff9a3c','#242627'],rd:['#e5484d','#fff'],pi:['#47ff82','#242627']};
+function palCss(){var s='';for(var k in PAL){var c=PAL[k],x='.ecx-'+k;
+s+='tr.rd'+x+' td,#table_resp tr'+x+' td{background:'+c[0]+'!important;color:'+c[1]+'!important}tr'+x+' td *{color:'+c[1]+'!important}';
+s+='#bbox .level-wrap:has('+x+'),#booking .level-wrap:has('+x+'){background:'+c[0]+';color:'+c[1]+'}#bbox .level-wrap:has('+x+') *,#booking .level-wrap:has('+x+') *{color:'+c[1]+'}';
+s+='#bbox_color'+x+',#booking_color'+x+'{background:#242627!important}#bbox_color'+x+' *,#booking_color'+x+' *{color:#fff!important}.ec-card'+x+'{background:'+c[0]+';color:'+c[1]+'}'}
+return s}
+function key(t){for(var i=0;i<K.length;i++)if(K[i][0].test(t))return K[i][1];return''}
+function ttl(e){if(e.tagName==='TR')return e.textContent;var b=e.closest('#bbox'),t=b&&b.querySelector('#bbox_title');if(t)return t.textContent;b=e.closest('#booking');t=b&&b.querySelector('#booking_title,.res_title');return t?t.textContent:''}
+function retag(r){if(r===document&&!document.body.classList.contains('capacity_m'))return;[].forEach.call(r.querySelectorAll('tr[class*=xcol],#bbox [class*=xcol],#booking [class*=xcol]'),function(e){var k=key(ttl(e));if(!k)return;var m=MAP[k];if(e.classList.contains(m))return;e.className=e.className.replace(/\bxcol\d+\b/g,'').replace(/\becx-\w+/g,'')+' '+m})}
+var EXTRA=palCss()+'.ec-card{order:2;margin:16px 0 16px;padding:14px 16px;border-radius:14px;background:#f1f5f2;color:#242627;font:600 16px Inter,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}.ec-card.xcol5{background:#0f0f0f;color:#fff}.ec-card.xcol13{background:#ffd400;color:#242627}.ec-card.xcol3{background:#d9dcda;color:#242627}.d3{order:9;margin-top:24px}'
 +'.ec-sheet body{background:#fff}.ec-sheet .wrap:has(>.box_wrap){min-height:0;padding:0 20px 28px;max-width:none}.ec-sheet .wrap:has(>.box_wrap)::before{display:none}.ec-sheet .wrap:has(>.box_wrap)>h2.cc3{margin:26px 0 0!important;font-size:34px!important;line-height:1!important;padding-right:48px!important}.ec-sheet .wrap:has(>.box_wrap)>h2.cc3::before{display:none}.ec-sheet h2.cc3 a.if-times{display:none!important}.ec-sheet .box_wrap{margin:0!important;box-shadow:none;border:0;border-radius:0;padding:0!important;background:transparent}.ec-sheet .box_wrap::before{display:none}.ec-sheet .d3{display:none}'
-+'.ec-sheet .ec-card{display:block;margin:18px 0 6px;padding:16px 18px;border-radius:18px}.ec-sheet .ec-t{font:600 20px Inter,sans-serif;text-transform:capitalize}.ec-sheet .ec-s{font:400 15px Inter,sans-serif;margin-top:4px;opacity:.9}.ec-lbl{grid-column:1/-1;font:600 15px Inter,sans-serif;margin:18px 0 8px;color:#242627}';
-var EXTRAP='#bbox_description_wrap.ec-empty{display:none!important}p#but_new a::after{content:var(--ec-cta,"Prenota il tuo posto")!important}.ec-av{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#e4fbe9;color:#242627;font:700 12px Inter,sans-serif;margin-right:12px;vertical-align:middle}#bbox_content tbody td:first-child{font-size:16px;color:#242627}';
++'.ec-sheet .ec-card{display:block;margin:18px 0 6px;padding:16px 18px;border-radius:18px}.ec-sheet .ec-t{font:600 20px Inter,sans-serif;text-transform:capitalize}.ec-sheet .ec-s{font:400 15px Inter,sans-serif;margin-top:4px;opacity:.9}.ec-lbl{font:600 15px Inter,sans-serif;margin:18px 0 8px;color:#242627}';
+var EXTRAP=palCss()+'#bbox_description_wrap.ec-empty{display:none!important}p#but_new a::after{content:var(--ec-cta,"Prenota il tuo posto")!important}.ec-av{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#e4fbe9;color:#242627;font:700 12px Inter,sans-serif;margin-right:12px;vertical-align:middle}#bbox_content tbody td:first-child{font-size:16px;color:#242627}';
 function q(s){var e=document.querySelector(s);return e?e.textContent.replace(/\s+/g,' ').trim():''}
-function info(){var w=document.getElementById('bbox_color_wrap');var m=w&&w.className.match(/xcol\d+/);return{title:q('#bbox_title'),date:q('#bbox_date'),spots:q('#bbox_color'),price:q('#bbox_priced'),cx:m?m[0]:''}}
+function info(){var w=document.getElementById('bbox_color_wrap');var m=w&&w.className.match(/xcol\d+|ecx-\w+/);return{title:q('#bbox_title'),date:q('#bbox_date'),spots:q('#bbox_color'),price:q('#bbox_priced'),cx:m?m[0]:''}}
 function closeOv(reload){var o=document.getElementById('ec-ov');if(o)o.remove();document.documentElement.style.overflow='';if(reload)location.href=location.pathname.replace(/\/\d+$/,'')}
 function walk(root,fn){var w=root.ownerDocument.createTreeWalker(root,4,null,false),n,a=[];while(n=w.nextNode())a.push(n);a.forEach(fn)}
 function inject(d,inf,sheet,fit){
 if(d.getElementById('ec-css'))return;
 var l=d.createElement('link');l.id='ec-css';l.rel='stylesheet';l.href=BASE+'enjoy.css?v=3';d.head.appendChild(l);
 var s=d.createElement('style');s.textContent=EXTRA;d.head.appendChild(s);
+retag(d);
 var h=d.querySelector('h2.cc3');
 if(inf&&inf.title&&h&&d.querySelector('.box_wrap')){
 if(sheet)d.documentElement.classList.add('ec-sheet');
@@ -30,8 +42,7 @@ if(sheet){
 var bw=d.querySelector('.box_wrap');
 walk(bw,function(n){var v=n.nodeValue.trim();if(/^Invia email$/i.test(v))n.nodeValue=n.nodeValue.replace(/Invia email/i,'Invia email di conferma');else if(/^Conferma$/i.test(v))n.nodeValue=''});
 [].forEach.call(d.querySelectorAll('input[type=submit]'),function(x){x.value='Conferma prenotazione'});
-var f=d.getElementById('booking_full_name');
-if(false){var lb=d.createElement('div');lb.className='ec-lbl';lb.textContent='Nome e cognome';var row=f.parentNode.parentNode;row.parentNode.insertBefore(lb,row)}
+
 }
 }
 [].forEach.call(d.querySelectorAll('a[href*="shop"]'),function(x){x.target='_top'});
@@ -68,6 +79,7 @@ if(!VIEW.test(h)){closeOv(!first);return}
 first=false;inject(d,inf,sheet,fit)});
 f.src=url}
 function enh(){
+retag(document);
 var b=document.getElementById('bbox');if(!b)return;
 var cw=document.getElementById('bbox_color_wrap'),dw=document.getElementById('bbox_description_wrap'),ds=document.getElementById('bbox_description');
 if(cw&&dw&&ds){if(dw.parentNode===cw)cw.parentNode.insertBefore(dw,cw.nextSibling);
@@ -77,6 +89,7 @@ var th=b.querySelector('#bbox_content thead a');if(th&&th.textContent.trim()!=='
 var a=b.querySelector('#but_new a'),p=document.getElementById('bbox_priced');
 if(a&&p){var m=p.textContent.match(/(\d+)/);a.style.setProperty('--ec-cta',m?'"Prenota con '+m[1]+(m[1]==='1'?' credito':' crediti')+'"':'"Prenota il tuo posto"')}}
 var st=document.createElement('style');st.textContent=EXTRAP;document.head.appendChild(st);
+retag(document);var tm;new MutationObserver(function(){clearTimeout(tm);tm=setTimeout(function(){retag(document)},120)}).observe(document.body,{childList:true,subtree:true});
 document.addEventListener('click',function(e){
 if(!document.body.classList.contains('capacity_m'))return;
 var r=e.target.closest&&e.target.closest('[onclick*=viewslot]');
