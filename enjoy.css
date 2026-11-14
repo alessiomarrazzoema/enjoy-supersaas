@@ -9,3 +9,10 @@
 @media(max-width:699px){#d1 .message_box p:not(:has(a)){display:none!important}#d1 .message_box{margin:-14px -16px 6px!important;padding:6px 16px 12px!important}#d1 .message_box p{margin:0!important;line-height:1.2}#d1 .message_box,#d1 .message_box *{font-size:13px!important}#d1 .message_box a{padding:6px 14px!important}}
 @media(max-width:699px){#d1 .message_box{margin:-4px -16px 6px!important;padding:12px 16px 12px!important}}
 @media(max-width:699px){#d1 .message_box{margin:0 -16px 6px!important;padding:20px 16px 14px!important}#d1 .message_box em{display:block!important;width:100%}#d1 .message_box strong{display:flex!important;justify-content:space-between;align-items:center;width:100%}}
+
+/* per-calendar colour (sala/morning red, personal blue) */
+body:has(a[href*="/Sala_Attrezzi"]),body:has(a[href*="/Morning"]){--ec-c:#ef4444;--ec-t:#fde8e8;--ec-f:#fff}
+body:has(a[href*="/Personal_Small_Group"]){--ec-c:#0ea5e9;--ec-t:#e0f2fe;--ec-f:#fff}
+body #monthnav td.busy>span,body #monthnav table:not(.sch) td.busy a{background:var(--ec-c,#47ff82)!important;color:var(--ec-f,#242627)!important}
+body #monthnav td.busy.other>span,body #monthnav table:not(.sch) td.busy.other a{background:var(--ec-t,#e6fdee)!important;color:#8a908b!important}
+body div.cal-h{background:var(--ec-t,#e6fdee)!important}
