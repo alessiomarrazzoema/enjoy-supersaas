@@ -4,7 +4,7 @@ var BASE='https://alessiomarrazzoema.github.io/enjoy-supersaas/';
 var VIEW=/[?&]view=(new|free|agenda)(&|$)/;
 var EXTRA='.ec-card{order:2;margin:16px 0 16px;padding:14px 16px;border-radius:14px;background:#f1f5f2;color:#242627;font:600 16px Inter,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}.ec-card.xcol5{background:#0f0f0f;color:#fff}.ec-card.xcol13{background:#ffd400;color:#242627}.ec-card.xcol3{background:#d9dcda;color:#242627}.d3{order:9;margin-top:24px}'
 +'.ec-sheet body{background:#fff}.ec-sheet .wrap:has(>.box_wrap){min-height:0;padding:0 20px 28px;max-width:none}.ec-sheet .wrap:has(>.box_wrap)::before{display:none}.ec-sheet .wrap:has(>.box_wrap)>h2.cc3{margin:26px 0 0!important;font-size:34px!important;line-height:1!important;padding-right:48px!important}.ec-sheet .wrap:has(>.box_wrap)>h2.cc3::before{display:none}.ec-sheet h2.cc3 a.if-times{display:none!important}.ec-sheet .box_wrap{margin:0!important;box-shadow:none;border:0;border-radius:0;padding:0!important;background:transparent}.ec-sheet .box_wrap::before{display:none}.ec-sheet .d3{display:none}'
-+'.ec-sheet .ec-card{display:block;margin:18px 0 6px;padding:16px 18px;border-radius:18px}.ec-sheet .ec-t{font:600 20px Inter,sans-serif;text-transform:capitalize}.ec-sheet .ec-s{font:400 15px Inter,sans-serif;margin-top:4px;opacity:.9}.ec-lbl{font:600 15px Inter,sans-serif;margin:18px 0 8px;color:#242627}';
++'.ec-sheet .ec-card{display:block;margin:18px 0 6px;padding:16px 18px;border-radius:18px}.ec-sheet .ec-t{font:600 20px Inter,sans-serif;text-transform:capitalize}.ec-sheet .ec-s{font:400 15px Inter,sans-serif;margin-top:4px;opacity:.9}.ec-lbl{grid-column:1/-1;font:600 15px Inter,sans-serif;margin:18px 0 8px;color:#242627}';
 var EXTRAP='#bbox_description_wrap.ec-empty{display:none!important}p#but_new a::after{content:var(--ec-cta,"Prenota il tuo posto")!important}.ec-av{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#e4fbe9;color:#242627;font:700 12px Inter,sans-serif;margin-right:12px;vertical-align:middle}#bbox_content tbody td:first-child{font-size:16px;color:#242627}';
 function q(s){var e=document.querySelector(s);return e?e.textContent.replace(/\s+/g,' ').trim():''}
 function info(){var w=document.getElementById('bbox_color_wrap');var m=w&&w.className.match(/xcol\d+/);return{title:q('#bbox_title'),date:q('#bbox_date'),spots:q('#bbox_color'),price:q('#bbox_priced'),cx:m?m[0]:''}}
@@ -31,7 +31,7 @@ var bw=d.querySelector('.box_wrap');
 walk(bw,function(n){var v=n.nodeValue.trim();if(/^Invia email$/i.test(v))n.nodeValue=n.nodeValue.replace(/Invia email/i,'Invia email di conferma');else if(/^Conferma$/i.test(v))n.nodeValue=''});
 [].forEach.call(d.querySelectorAll('input[type=submit]'),function(x){x.value='Conferma prenotazione'});
 var f=d.getElementById('booking_full_name');
-if(f&&f.parentNode&&f.parentNode.parentNode){var lb=d.createElement('div');lb.className='ec-lbl';lb.textContent='Nome e cognome';var row=f.parentNode.parentNode;row.parentNode.insertBefore(lb,row)}
+if(f&&f.parentNode&&f.parentNode.parentNode){var lb=d.createElement('div');lb.className='ec-lbl';lb.textContent='Nome e cognome';f.parentNode.parentNode.insertBefore(lb,f.parentNode)}
 }
 }
 [].forEach.call(d.querySelectorAll('a[href*="shop"]'),function(x){x.target='_top'});
@@ -54,7 +54,7 @@ var hd=document.createElement('div');hd.style.cssText='position:absolute;top:8px
 var x=document.createElement('button');x.textContent='✕';x.setAttribute('aria-label','Chiudi');x.style.cssText='position:absolute;top:24px;right:16px;z-index:3;width:40px;height:40px;border:0;background:transparent;color:#242627;font:600 22px Inter,sans-serif;cursor:pointer';x.onclick=function(){closeOv(false)};
 s.appendChild(f);s.appendChild(hd);s.appendChild(x);o.appendChild(s);
 o.addEventListener('click',function(e){if(e.target===o)closeOv(false)});
-fit=function(){try{var d=f.contentDocument;var hh=Math.min(Math.ceil(d.querySelector('.wrap').getBoundingClientRect().height)+4,Math.round(window.innerHeight*0.92));s.style.height=hh+'px'}catch(e){}};
+fit=function(){try{var d=f.contentDocument;var hh=Math.min(d.documentElement.scrollHeight+4,Math.round(window.innerHeight*0.92));s.style.height=hh+'px'}catch(e){}};
 }else{
 o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:#fff';
 f.style.cssText='width:100%;height:100%;border:0;display:block';
