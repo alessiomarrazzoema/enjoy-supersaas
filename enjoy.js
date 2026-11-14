@@ -2,7 +2,7 @@
 if(window.__ec||window.top!==window)return;window.__ec=1;
 var BASE='https://alessiomarrazzoema.github.io/enjoy-supersaas/';
 var VIEW=/[?&]view=(new|free|agenda)(&|$)/;
-var K=[[/hyrox/i,'hy'],[/crossfit/i,'cf'],[/gag/i,'gag'],[/open\s*box/i,'ob'],[/circuit/i,'ci'],[/skill|team\s*wod/i,'rd'],[/pilates/i,'pi'],[/str+eng?h?t/i,'st']];
+var K=[[/hyrox/i,'hy'],[/crossfit/i,'cf'],[/gag/i,'gag'],[/open\s*box/i,'ob'],[/circuit(?!\s*pilates)/i,'ci'],[/skill|team\s*wod/i,'rd'],[/pilates/i,'pi'],[/str+eng?h?t/i,'st']];
 var MAP={cf:'xcol5',hy:'xcol13',ob:'xcol3',gag:'ecx-gag',ci:'ecx-ci',rd:'ecx-rd',pi:'ecx-pi',st:'ecx-st'};
 var PAL={gag:['#8fd3ff','#242627'],ci:['#ff9a3c','#242627'],rd:['#e5484d','#fff'],pi:['#47ff82','#242627'],st:['#b388ff','#242627']};
 function palCss(){var s='';for(var k in PAL){var c=PAL[k],x='.ecx-'+k;
