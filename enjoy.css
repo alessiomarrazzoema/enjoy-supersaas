@@ -16,3 +16,6 @@ body:has(a[href*="/Personal_Small_Group"]){--ec-c:#0ea5e9;--ec-t:#e0f2fe;--ec-f:
 body #monthnav td.busy>span,body #monthnav table:not(.sch) td.busy a{background:var(--ec-c,#47ff82)!important;color:var(--ec-f,#242627)!important}
 body #monthnav td.busy.other>span,body #monthnav table:not(.sch) td.busy.other a{background:var(--ec-t,#e6fdee)!important;color:#8a908b!important}
 body div.cal-h{background:var(--ec-t,#e6fdee)!important}
+
+/* today highlight */
+@media(max-width:699px){body #monthnav table:not(.sch) td.today:not(.selectd) a{background:#242627!important;color:#47ff82!important}}
