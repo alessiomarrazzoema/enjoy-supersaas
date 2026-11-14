@@ -31,7 +31,7 @@ var bw=d.querySelector('.box_wrap');
 walk(bw,function(n){var v=n.nodeValue.trim();if(/^Invia email$/i.test(v))n.nodeValue=n.nodeValue.replace(/Invia email/i,'Invia email di conferma');else if(/^Conferma$/i.test(v))n.nodeValue=''});
 [].forEach.call(d.querySelectorAll('input[type=submit]'),function(x){x.value='Conferma prenotazione'});
 var f=d.getElementById('booking_full_name');
-if(f&&f.parentNode&&f.parentNode.parentNode){var lb=d.createElement('div');lb.className='ec-lbl';lb.textContent='Nome e cognome';f.parentNode.parentNode.insertBefore(lb,f.parentNode)}
+if(f&&f.parentNode&&f.parentNode.parentNode){var lb=d.createElement('div');lb.className='ec-lbl';lb.textContent='Nome e cognome';var row=f.parentNode.parentNode;row.parentNode.insertBefore(lb,row)}
 }
 }
 [].forEach.call(d.querySelectorAll('a[href*="shop"]'),function(x){x.target='_top'});
@@ -54,7 +54,7 @@ var hd=document.createElement('div');hd.style.cssText='position:absolute;top:8px
 var x=document.createElement('button');x.textContent='✕';x.setAttribute('aria-label','Chiudi');x.style.cssText='position:absolute;top:24px;right:16px;z-index:3;width:40px;height:40px;border:0;background:transparent;color:#242627;font:600 22px Inter,sans-serif;cursor:pointer';x.onclick=function(){closeOv(false)};
 s.appendChild(f);s.appendChild(hd);s.appendChild(x);o.appendChild(s);
 o.addEventListener('click',function(e){if(e.target===o)closeOv(false)});
-fit=function(){try{var d=f.contentDocument;var hh=Math.min(d.documentElement.scrollHeight+4,Math.round(window.innerHeight*0.92));s.style.height=hh+'px'}catch(e){}};
+fit=function(){try{var d=f.contentDocument;var hh=Math.min(Math.ceil(d.querySelector('.wrap').getBoundingClientRect().height)+4,Math.round(window.innerHeight*0.92));s.style.height=hh+'px'}catch(e){}};
 }else{
 o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:#fff';
 f.style.cssText='width:100%;height:100%;border:0;display:block';
