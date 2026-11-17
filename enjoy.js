@@ -1,3 +1,4 @@
+;(function(){if(window.__ecv||window.top!==window)return;window.__ecv=1;function go(){try{var M=document.getElementById('dd-wrap');if(!M)return;var L=[].slice.call(M.querySelectorAll('a')),E=L.filter(function(a){return a.textContent.trim()=='Elenco'})[0],C=L.filter(function(a){return a.textContent.trim()=='Calendario'})[0];if(!E||!C)return;E.addEventListener('click',function(){try{localStorage.setItem('ec_v','e')}catch(x){}});C.addEventListener('click',function(){try{localStorage.setItem('ec_v','c')}catch(x){}});var v=null;try{v=localStorage.getItem('ec_v')}catch(x){}if(v=='e')E.click()}catch(x){}}if(document.readyState=='loading')document.addEventListener('DOMContentLoaded',go);else go()})();
 (function(){
 if(window.__ec||window.top!==window)return;window.__ec=1;
 var BASE='https://alessiomarrazzoema.github.io/enjoy-supersaas/';
