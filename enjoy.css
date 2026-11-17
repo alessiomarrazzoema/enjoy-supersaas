@@ -22,3 +22,5 @@ body div.cal-h{background:var(--ec-t,#e6fdee)!important}
 @media(max-width:699px){body tr.rd.xcol5 td:not(.rt),body tr.rd.xcol5 td:not(.rt) *{color:#fff!important}}
 
 @media(max-width:699px){body #monthnav table:not(.sch) td.today:not(.selectd) a{background:#242627!important;color:#47ff82!important}}
+
+body tr.rd.xcol5 td:not(.rt),body tr.rd.xcol5 td:not(.rt) *{color:#fff!important}
