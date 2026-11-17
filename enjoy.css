@@ -18,6 +18,10 @@ body #monthnav td.busy.other>span,body #monthnav table:not(.sch) td.busy.other a
 body div.cal-h{background:var(--ec-t,#e6fdee)!important}
 
 /* today highlight */
+/* popup list compact + shop capital */
+@media(max-width:699px){body #bbox_content tbody td{padding-top:3px!important;padding-bottom:3px!important}body #bbox_content tbody td:first-child{font-size:14px!important}body #bbox_content .ec-av{width:26px!important;height:26px!important;min-width:26px!important;font-size:10px!important;margin-right:8px!important}}
+#d1 .message_box a{text-transform:capitalize!important}
+
 /* compact view switch */
 @media(max-width:699px){body #dd-wrap{margin:0!important;padding:6px 16px 0!important}body #dd-wrap #trigger{height:30px!important;min-height:0!important;font-size:13px!important;padding:0 12px!important;border-width:1.5px!important}body #dd-wrap+*{margin-top:6px!important}}
 
