@@ -18,6 +18,9 @@ body #monthnav td.busy.other>span,body #monthnav table:not(.sch) td.busy.other a
 body div.cal-h{background:var(--ec-t,#e6fdee)!important}
 
 /* today highlight */
+/* compact view switch */
+@media(max-width:699px){body #dd-wrap{margin:0!important;padding:6px 16px 0!important}body #dd-wrap #trigger{height:30px!important;min-height:0!important;font-size:13px!important;padding:0 12px!important;border-width:1.5px!important}body #dd-wrap+*{margin-top:6px!important}}
+
 /* bold counts */
 body tr.rd .pmc{font-weight:700!important}
 
