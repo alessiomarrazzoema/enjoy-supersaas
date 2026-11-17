@@ -37,3 +37,4 @@ body tr.rd .pmc{font-weight:700!important}
 @media(max-width:699px){body #monthnav table:not(.sch) td.today:not(.selectd) a{background:#242627!important;color:#47ff82!important}}
 
 body tr.rd.xcol5 td:not(.rt),body tr.rd.xcol5 td:not(.rt) *{color:#fff!important}
+body .outer_wrap_slot{display:flex!important;flex-direction:column!important}body .outer_wrap_slot>#bbox_color_wrap{order:1}body .outer_wrap_slot>#but_new{order:2;margin:4px 0 14px!important}body .outer_wrap_slot>#bbox_content{order:3}body .outer_wrap_slot>.c{order:4}
