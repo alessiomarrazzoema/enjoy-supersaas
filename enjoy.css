@@ -19,7 +19,7 @@ body div.cal-h{background:var(--ec-t,#e6fdee)!important}
 
 /* today highlight */
 /* compact mobile */
-@media(max-width:699px){body tr.rd td.rt{padding:8px 9px!important;font-size:15px!important}body tr.rd td.ind{padding:6px 8px 15px!important}body tr.rd a.a-no{font-size:17px!important}table:has(tr.rd){border-spacing:0 5px!important}body tr.rd:not(.mine_i) td:first-child{box-shadow:none!important}#d1::before{font-size:9px!important;letter-spacing:.9px!important;height:auto!important;line-height:1.5!important;white-space:nowrap!important;padding-bottom:2px!important}#d1 .message_box h1,#d1 h1{font-size:28px!important;line-height:1.05!important;padding-bottom:2px!important}#dd-wrap{padding-top:8px!important}body #monthnav table:not(.sch) td{padding:2px!important}body #monthnav table:not(.sch) td a{height:44px!important;min-height:0!important;padding:4px 4px!important;box-sizing:border-box;justify-content:center!important;gap:3px!important}}
+@media(max-width:699px){body tr.rd td.rt{padding:8px 9px!important;font-size:15px!important}body tr.rd td.ind{padding:6px 8px 15px!important}body tr.rd a.a-no{font-size:17px!important}table:has(tr.rd){border-spacing:0 5px!important}body tr.rd:not(.mine_i) td:first-child{box-shadow:none!important}#d1::before{font-size:9px!important;letter-spacing:.9px!important;height:auto!important;line-height:1.5!important;white-space:nowrap!important;padding-bottom:2px!important}#d1 .message_box h1,#d1 h1{font-size:28px!important;line-height:1.05!important;padding-bottom:2px!important}#dd-wrap{padding-top:8px!important}}
 
 /* crossfit rows text */
 @media(max-width:699px){body tr.rd.xcol5 td:not(.rt),body tr.rd.xcol5 td:not(.rt) *{color:#fff!important}}
