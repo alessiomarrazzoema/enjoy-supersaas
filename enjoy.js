@@ -91,7 +91,7 @@ dw.classList.toggle('ec-empty',!ds.textContent.trim())}
 var th=b.querySelector('#bbox_content thead a');if(th&&th.textContent.trim()!=='Iscritti')th.textContent='Iscritti';
 [].forEach.call(b.querySelectorAll('#bbox_content tbody tr'),function(tr){var td=tr.querySelector('td');if(!td||td.querySelector('.ec-av'))return;var n=td.textContent.trim();if(!n)return;var i=n.split(/\s+/).map(function(x){return x[0]}).slice(0,2).join('').toUpperCase();var a=document.createElement('span');a.className='ec-av';a.textContent=i;td.insertBefore(a,td.firstChild)});
 var a=b.querySelector('#but_new a'),p=document.getElementById('bbox_priced');
-if(a&&p){var m=p.textContent.match(/(\d+)/);a.style.setProperty('--ec-cta',m?'"Prenota con '+m[1]+(m[1]==='1'?' credito':' crediti')+'"':'"Prenota il tuo posto"')}}
+if(a&&/attesa/i.test(a.textContent)){a.style.setProperty('--ec-cta','"Inserisci in lista d\u2019attesa"')}else if(a&&p){var m=p.textContent.match(/(\d+)/);a.style.setProperty('--ec-cta',m?'"Prenota con '+m[1]+(m[1]==='1'?' credito':' crediti')+'"':'"Prenota il tuo posto"')}}
 var st=document.createElement('style');st.textContent=EXTRAP;document.head.appendChild(st);
 retag(document);var tm;new MutationObserver(function(){clearTimeout(tm);tm=setTimeout(function(){retag(document)},120)}).observe(document.body,{childList:true,subtree:true});
 document.addEventListener('click',function(e){
